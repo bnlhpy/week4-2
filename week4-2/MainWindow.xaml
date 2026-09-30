@@ -1,0 +1,78 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WPF飲料訂購ver2" Height="500" Width="600">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <!-- 內用 / 外帶 -->
+            <GroupBox Header="內用/外帶" Background="#FFE6D5">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                    <RadioButton Name="rbIn" Content="內用" IsChecked="True" Margin="20,0"/>
+                    <RadioButton Name="rbOut" Content="外帶" Margin="20,0"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- 飲料清單 -->
+            <StackPanel Background="#F4F3D6" Margin="0,10,0,0">
+                <!-- 紅茶大杯 -->
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <CheckBox Name="chkRedBig" Content="紅茶大杯" Width="100" VerticalAlignment="Center"/>
+                    <TextBlock Text="60元" Foreground="Brown" Width="60" VerticalAlignment="Center"/>
+                    <Slider Name="sliderRedBig" Width="150" Minimum="0" Maximum="30" TickFrequency="1" IsSnapToTickEnabled="True" Value="14"/>
+                    <TextBlock Text="{Binding Value, ElementName=sliderRedBig}" Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <!-- 紅茶小杯 -->
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <CheckBox Name="chkRedSmall" Content="紅茶小杯" Width="100" VerticalAlignment="Center"/>
+                    <TextBlock Text="40元" Foreground="Brown" Width="60" VerticalAlignment="Center"/>
+                    <Slider Name="sliderRedSmall" Width="150" Minimum="0" Maximum="30" TickFrequency="1" IsSnapToTickEnabled="True" Value="4"/>
+                    <TextBlock Text="{Binding Value, ElementName=sliderRedSmall}" Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <!-- 綠茶大杯 -->
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <CheckBox Name="chkGreenBig" Content="綠茶大杯" Width="100" VerticalAlignment="Center"/>
+                    <TextBlock Text="60元" Foreground="Brown" Width="60" VerticalAlignment="Center"/>
+                    <Slider Name="sliderGreenBig" Width="150" Minimum="0" Maximum="30" TickFrequency="1" IsSnapToTickEnabled="True" Value="0"/>
+                    <TextBlock Text="{Binding Value, ElementName=sliderGreenBig}" Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <!-- 綠茶小杯 -->
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <CheckBox Name="chkGreenSmall" Content="綠茶小杯" Width="100" VerticalAlignment="Center"/>
+                    <TextBlock Text="40元" Foreground="Brown" Width="60" VerticalAlignment="Center"/>
+                    <Slider Name="sliderGreenSmall" Width="150" Minimum="0" Maximum="30" TickFrequency="1" IsSnapToTickEnabled="True" Value="0"/>
+                    <TextBlock Text="{Binding Value, ElementName=sliderGreenSmall}" Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <!-- 可樂大杯 -->
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <CheckBox Name="chkCokeBig" Content="可樂大杯" Width="100" VerticalAlignment="Center"/>
+                    <TextBlock Text="50元" Foreground="Brown" Width="60" VerticalAlignment="Center"/>
+                    <Slider Name="sliderCokeBig" Width="150" Minimum="0" Maximum="30" TickFrequency="1" IsSnapToTickEnabled="True" Value="0"/>
+                    <TextBlock Text="{Binding Value, ElementName=sliderCokeBig}" Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <!-- 可樂小杯 -->
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <CheckBox Name="chkCokeSmall" Content="可樂小杯" Width="100" VerticalAlignment="Center"/>
+                    <TextBlock Text="30元" Foreground="Brown" Width="60" VerticalAlignment="Center"/>
+                    <Slider Name="sliderCokeSmall" Width="150" Minimum="0" Maximum="30" TickFrequency="1" IsSnapToTickEnabled="True" Value="11"/>
+                    <TextBlock Text="{Binding Value, ElementName=sliderCokeSmall}" Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- 結果顯示區 -->
+            <TextBox Name="txtResult" Height="130" Margin="0,10,0,0" Background="#FDECE3" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
+        </StackPanel>
+
+        <!-- 右側訂購按鈕 -->
+        <Button Name="btnOrder" Grid.Column="1" Content="訂購" Width="60" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnOrder_Click"/>
+    </Grid>
+</Window>
